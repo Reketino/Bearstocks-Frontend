@@ -24,3 +24,46 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Neon Title med 3D spin */
+
+@keyframes spin3d {
+  0% { transform: perspective(800px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0); }
+  25% { transform: perspective(800px) rotateX(20deg) rotateY(10deg) rotateZ(-6deg) translateZ(6px); }
+  50% { transform: perspective(800px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) translateZ(12px); }
+  75% { transform: perspective(800px) rotateX(-20deg) rotateY(270deg) rotateZ(6deg) translateZ(6px); }
+  100% { transform: perspective(800px) rotateX(0deg) rotateY(360deg) rotateZ(0deg) translateZ(0px); }
+}
+
+.neon-title {
+  font-size: clamp (2rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0.25rem 1rem;
+  display: inline-block;
+
+
+  background: linear-gradient(90deg, #0ff, #7c3cff 40%, #ff2d95 70%, #ffd12a 100% );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+
+text-shadow: 
+0 0 2px rgba(255,255,255,0.85),
+0 0 8px rgba(124,60,255,0.45),
+0 0 20px rgba(0,255,220,0.12),
+0 10px 30px rgba(0,0,0,0.6);
+
+
+transform-style: preserve-3d;
+animation: spind3d 8s cubic-bezier(.2,.9,.2,.9) infinite;
+will-change: transform;
+text-align: center;
+
+
+filter: drop-shadow(0 6px 20px rgba(124,60,255,0.15));
+}
