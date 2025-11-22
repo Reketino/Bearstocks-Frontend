@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import NeonH1 from '@/components/neonh1';
+import LiveStocks from '@/components/livestocks';
 
 export default function Page() {
   return (
