@@ -1,27 +1,35 @@
-import { React, useMemo, useState} from 'react';
-import WebSocket from './websocket';
+import { React, useEffect, useMemo, useState} from 'react';
+import useWebSocket from './usewebsocket';
 
 export default function LiveStocks() {
-  const { connected, lastMsg } = WebSocket("wss://bearstocks-backend.onrender.com/ws", {
+  const { connected, lastMsg } = useWebSocket("wss://bearstocks-backend.onrender.com/ws", {
     autoReconnect: true,
     reconnectInterval: 3000,
-  });
+  }
+);
 
 
   const [stocks, setStocks] = useState({});
-  constprevRef = useMemo(() => ({}), []);
+  const prevRef = useMemo(() => ({}), []);
 
-
-  if (lastMsg) {
+useEffect(() => {
+  if (!lastMsg) return;
+    
     try {
         const parsed = JSON.parse(lastMsg);
-        for (const [k, v] of Object.entries(parsed)) {
-            const prev = prevRef[k]?.price ?? v.price;
-            prevRef[k] = { ...v, prevPrice: prev };
+
+
+        for (const [ticker, v] of Object.entries(parsed)) {
+            const previous = prevRef[ticker]?.price ?? v.price;
+            prevRef[ticker] = { ...v, prevPrice: previous };
         }
+
+
         setStocks({ ...prevRef });
-    } catch {}
-  }
+    } catch (err) {
+        console.error("WS parsing error:", err);
+    }
+  }, [lastMsg]);
 
 
   return (

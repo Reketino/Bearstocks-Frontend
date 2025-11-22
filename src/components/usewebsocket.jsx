@@ -1,6 +1,6 @@
 import { React, useEffect, useRef, useState } from 'react'
 
-export default function WebSocket(url, opts = {}) {
+export default function useWebSocket(url, opts = {}) {
 const { autoReconnect = true, reconnectInterval = 3000} = opts;
 const wsRef= useRef (null);
 const [connected, setConnected] = useState(false);
