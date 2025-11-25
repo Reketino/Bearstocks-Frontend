@@ -1,42 +1,42 @@
 ## 🐻 BearStocks Frontend – Live Realtime Meme-Market Dashboard
 
-Dette er den offisielle frontenden for BearStocks – et realtime meme-coin marked drevet av en FastAPI-backend som sender priskurver i sanntid basert på GitHub-aktivitet, bursdagsboost og random volatilitet.
+This is the official frontend for BearStocks — a realtime meme-coin market powered by a Python FastAPI backend that streams live price curves based on GitHub activity, birthday boosts, and pure chaos volatility.
 
-Frontenden er bygget i Next.js 16 og Tailwind CSS 4, og kobler seg til backendens WebSocket-feed for å gi et live dashboard med smooth animasjoner, clean arkitektur og fullt BearStreet-kaos.
+The frontend is built with Next.js 16 and Tailwind CSS 4, and connects to the backend WebSocket feed to deliver a live dashboard with smooth animations, clean architecture, and full BearStreet madness.
 
 ## 🚀 Live Demo
 
-Frontend (Vercel):
+## Frontend (Vercel):
 👉 https://bearstocks.vercel.app
 
-Backend WebSocket (Render):
+## Backend WebSocket (Python FastAPI, Render):
 👉 wss://bearstocks-backend.onrender.com/ws
 
+## 🧩 What the Frontend Does
 
-## 🧩 Hva frontenden gjør
+Connects to a Python FastAPI WebSocket and receives live prices every second
 
-Koble til WebSocket og motta live priser hvert sekund
+Displays all coins in the BearStreet universe
 
-Vise alle coins i BearStreet-universet
+Shows price movement → ▲ / ▼ / •
 
-Oppdatere forskjell i pris → ▲ / ▼ / •
+WebSocket status → BEARECTED / UNBEARECTED
 
-Vise WebSocket-status → BEARECTED / UNBEARECTED
+Auto-reconnect using a custom useWebSocket() hook
 
-Bruke useWebSocket hook for stabil reconnect
+Clean dark UI with neon styling
 
-Clean UI med mørkt tema og neon-styling
+Animated 3D neon header (“BEARSTREET MARKETS™”)
 
-Animert 3D Neon-header ("BEARSTREET MARKETS™")
+## 🧠 Backend Coin Logic (Summary)
 
-
-## 🧠 Coin-logikk (backend oppsummert)
+The entire market engine runs on a Python FastAPI backend, streaming realtime coin data through Uvicorn WebSockets.
 
 ## 🟦 Reketino Portfolio (REP) – GitHub Coin
 
-Pumpes av:
+Influenced by:
 
-Commits i dag
+Commits today
 
 Streak
 
@@ -44,25 +44,19 @@ Total contributions
 
 Random drift
 
-
-## 🟧 BearCoin (BRR) – Bursdags-Bullrun
-
-Boostes av:
-
-Dager til bursdag	Effekt
-30	+0.1%/dag
-14	+0.4%/dag
-7	+1%/dag
+## 🟧 BearCoin (BRR) – Birthday Bullrun
+Days to birthday	Effect
+30	+0.1%/day
+14	+0.4%/day
+7	+1%/day
 1	+20%
-Bursdagen	FULL MOONING 🚀
+Birthday	FULL MOONING 🚀
+## 🟩 Remaining Market
 
+BGI, REKE, BEM, REG → light random volatility.
 
-## 🟩 Resten av markedet
-
-BGI, REKE, BEM, REG → små tilfeldige svingninger.
-
-
-## 🛠️ Teknologi (Frontend)
+## 🛠️ Tech Stack
+Frontend
 
 Next.js 16 (App Router)
 
@@ -70,40 +64,52 @@ React 18
 
 Tailwind CSS v4
 
-Custom hook: useWebSocket()
+Custom useWebSocket() hook
 
-Semantisk komponent-struktur
+Deployed on Vercel
 
-Vercel deployment
+Backend
 
+Python
 
-## 📂 Struktur
+FastAPI
+
+Uvicorn (WebSocket server)
+
+GitHub API integrations
+
+Random volatility engine
+
+Deployed on Render
+
+## 📂 Project Structure
 src/
   app/
-    layout.jsx
-    page.jsx
+    layout.js
+    page.js
     globals.css
   components/
-    LiveStocks.jsx
+    livestocks.jsx
     NeonH1.jsx
-    useWebSocket.jsx
+    stocklivechart.jsx
+    usewebsocket.jsx
 
+## ⚙️ Running Locally
 
-## ⚙️ Kjøre lokalt
-
-Installer dependencies:
+Install packages:
 
 npm install
 
-Kjør dev:
+
+Start dev server:
 
 npm run dev
 
-Åpne:
+
+Visit:
 http://localhost:3000
 
-
-## 🔌 WebSocket-bruk i UI
+## 🔌 WebSocket Usage Example
 const { connected, lastMsg } = useWebSocket(
   "wss://bearstocks-backend.onrender.com/ws",
   {
@@ -112,60 +118,60 @@ const { connected, lastMsg } = useWebSocket(
   }
 );
 
-Status:
-🟢 BEARECTED
-🔴 UNBEARECTED — attempting reconnection…
 
+Status indicators:
+
+🟢 BEARECTED
+
+🔴 UNBEARECTED — attempting reconnection…
 
 ## 🌐 Deployment
 Frontend – Vercel
 
-Connect GitHub-repo
+Connect GitHub repository
 
-Auto-build + deploy
+Automatic builds and deployments
 
-Ingen miljøvariabler nødvendig
+No environment variables required
 
-Backend – Render
+Backend – Render (Python)
 
 FastAPI + Uvicorn
 
-WebSocket på /ws
+WebSocket endpoint: /ws
 
-Miljøvariabel:
+Required environment variable:
 
 GITHUB_TOKEN=<your_token>
 
+## 🎯 Future Plans
 
-## 🎯 Videre planer
+Mini sparklines per coin
 
-Mini sparklines (mini charts i hvert coin-card)
+BearTerminal™ (Bloomberg-style power view)
 
-Full-size live charts
+Portfolio with buy/sell simulation
 
-BearTerminal™ – Bloomberg-style view
-
-Portefølje med kjøp/salg
-
-Alerts for flash-crashes og moon events
+Flash-crash & moon-event alerts
 
 Admin dashboard
 
-Tema-switch + lyd-effekter
+Theme switch + sound effects
 
+## 🐻 About the Project
 
-## 🐻 Om prosjektet
+BearStocks blends:
 
-BearStocks kombinerer:
-
-koding
+coding
 
 gaming vibes
 
-meme-marked
+meme-markets
 
-seriøse API-er
+real APIs
 
-og en bjørn i dress
+a suit-wearing bear
 
-til ett realtime univers som lever sammen med deg og GitHub-grinden din.
+and a Python-powered market engine
+
+into one realtime universe that evolves together with your GitHub grind.
