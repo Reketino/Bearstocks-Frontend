@@ -1,8 +1,8 @@
 "use client";
 import { useState} from 'react'
-import NeonH1 from '@/components/NeonH1';
+import NeonH1 from '@/components/neonh1';
 import LiveStocks from '@/components/LiveStocks';
-import StockLiveChart from '@/components/StockLiveChart';
+import StockLiveChart from '@/components/stocklivechart';
 
 export default function Page() {
  const tickers = ["BRR", "REKE", "BGI", "BEM", "REG", "REP"];

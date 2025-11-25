@@ -1,5 +1,5 @@
 import { React, useEffect, useMemo, useState} from 'react';
-import useWebSocket from './useWebSocket';
+import useWebSocket from './usewebsocket';
 
 export default function LiveStocks() {
   const { connected, lastMsg } = useWebSocket("wss://bearstocks-backend.onrender.com/ws", {
