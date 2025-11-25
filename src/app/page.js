@@ -1,7 +1,7 @@
 "use client";
 import { useState} from 'react'
 import NeonH1 from '@/components/neonh1';
-import LiveStocks from '@/components/LiveStocks';
+import LiveStocks from '@/components/livestocks';
 import StockLiveChart from '@/components/stocklivechart';
 
 export default function Page() {
