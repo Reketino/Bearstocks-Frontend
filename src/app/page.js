@@ -1,9 +1,13 @@
 "use client";
-import React from 'react'
-import NeonH1 from '@/components/neonh1';
-import LiveStocks from '@/components/livestocks';
+import { useState} from 'react'
+import NeonH1 from '@/components/NeonH1';
+import LiveStocks from '@/components/LiveStocks';
+import StockLiveChart from '@/components/StockLiveChart';
 
 export default function Page() {
+ const tickers = ["BRR", "REKE", "BGI", "BEM", "REG", "REP"];
+ const [activeTicker, setActiiveTicker] = useState("BRR");
+
   return (
     <main className='min-h-screen bg-[#05060a] text-white p-6 flex flex-col gap-8 items-center'>
       <NeonH1 text="BEARSTOCKS" />
@@ -13,6 +17,28 @@ export default function Page() {
       <section className='w-full max-w-6xl'>
         <LiveStocks />
       </section>
+
+    <section className='flex gap-3 mt-4'>
+      {tickers.map((t) => (
+        <button
+        key={t}
+        onClick={() => setActiiveTicker(t)}
+        className={`
+          px-4 py-2 rounded-lg transition
+          ${activeTicker === t
+            ? "bg-green-500 text-black font-bold"
+            :"bg-neutral-800 hover:bg-neutral-700"}
+          `}
+          >
+            {t}
+          </button>
+      ))}
+    </section>
+
+
+    <section className='w-full max-w-6xl'>
+      <StockLiveChart ticker={activeTicker} />
+    </section>
     </main>
   );
 }

@@ -4,8 +4,8 @@ import {useEffect, useRef, useState } from 'react'
 import {
     LineChart,
     Line,
-    Xaxis,
-    Yaxis,
+    XAxis,
+    YAxis,
     Tooltip,
     ResponsiveContainer
 } from "recharts";
@@ -56,8 +56,8 @@ export default function StockLiveChart({ ticker }) {
 
         <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
-                <Xaxis dataKey="time" hide={true} />
-                <Yaxis stroke="#ccc" />
+                <XAxis dataKey="time" hide={true} />
+                <YAxis stroke="#ccc" />
                 <Tooltip />
                 <Line
                 type="monotone"
