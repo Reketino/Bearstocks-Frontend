@@ -6,7 +6,7 @@ import StockLiveChart from '@/components/stocklivechart';
 
 export default function Page() {
  const tickers = ["BRR", "REKE", "BGI", "BEM", "REG", "REP"];
- const [activeTicker, setActiiveTicker] = useState("BRR");
+ const [activeTicker, setActiveTicker] = useState("BRR");
 
   return (
     <main className='min-h-screen bg-[#05060a] text-white p-6 flex flex-col gap-8 items-center'>
@@ -22,7 +22,7 @@ export default function Page() {
       {tickers.map((t) => (
         <button
         key={t}
-        onClick={() => setActiiveTicker(t)}
+        onClick={() => setActiveTicker(t)}
         className={`
           px-4 py-2 rounded-lg transition
           ${activeTicker === t

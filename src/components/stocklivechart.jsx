@@ -1,5 +1,5 @@
 "use client";
-
+import { format } from 'date-fns';
 import {useEffect, useRef, useState } from 'react'
 import {
     LineChart,
@@ -56,9 +56,24 @@ export default function StockLiveChart({ ticker }) {
 
         <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
-                <XAxis dataKey="time" hide={true} />
+                <XAxis 
+                dataKey="time" 
+                tickFormatter={(value) => format(new Date(value), "HH:mm:ss")}
+                tick={{ fill: "#aaa", fontSize: 12 }}
+                />
                 <YAxis stroke="#ccc" />
-                <Tooltip />
+                <Tooltip
+                labelFormatter={(value) => 
+                    format (new Date(value), "dd.MM.yyyy HH:mm:ss")
+                }
+                formatter={(price) => [`${price} kr`, "pris"]}
+                contentStyle={{
+                    backgroundColor: "#111",
+                    border: "1px solid #333",
+                    borderRadius: "6px",
+                    color: "#fff",
+                }}
+                />
                 <Line
                 type="monotone"
                 dataKey="price"
